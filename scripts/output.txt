@@ -1,0 +1,185 @@
+================================================================================
+DINO GAME JUMP PHYSICS - v2 PER-OBSTACLE LOOKUP
+================================================================================
+
+Jump: 19 frames, peak at frame 9 (100px height)
+
+Obstacle clearances at peak:
+  cactus-small-1: height=70px, clearance=34px [OK]
+  cactus-small-2: height=70px, clearance=34px [OK]
+  cactus-small-3: height=70px, clearance=34px [OK]
+  cactus-large-1: height=100px, clearance=4px [OK]
+  cactus-large-2: height=100px, clearance=4px [OK]
+  cactus-large-3: height=100px, clearance=4px [OK]
+
+================================================================================
+PER-OBSTACLE SAFE JUMP DISTANCES
+================================================================================
+  speed= 6 | cactus-small-1     | IMPOSSIBLE | - | cl=-
+  speed= 6 | cactus-small-2     | IMPOSSIBLE | - | cl=-
+  speed= 6 | cactus-small-3     | IMPOSSIBLE | - | cl=-
+  speed= 6 | cactus-large-1     | IMPOSSIBLE | - | cl=-
+  speed= 6 | cactus-large-2     | IMPOSSIBLE | - | cl=-
+  speed= 6 | cactus-large-3     | IMPOSSIBLE | - | cl=-
+  speed= 8 | cactus-small-1     | range 7-25 | best=15 | cl=12.3px
+  speed= 8 | cactus-small-2     | IMPOSSIBLE | - | cl=-
+  speed= 8 | cactus-small-3     | IMPOSSIBLE | - | cl=-
+  speed= 8 | cactus-large-1     | IMPOSSIBLE | - | cl=-
+  speed= 8 | cactus-large-2     | IMPOSSIBLE | - | cl=-
+  speed= 8 | cactus-large-3     | IMPOSSIBLE | - | cl=-
+  speed=10 | cactus-small-1     | range 13-55 | best=33 | cl=21.2px
+  speed=10 | cactus-small-2     | range 13-21 | best=13 | cl=1.2px
+  speed=10 | cactus-small-3     | IMPOSSIBLE | - | cl=-
+  speed=10 | cactus-large-1     | IMPOSSIBLE | - | cl=-
+  speed=10 | cactus-large-2     | IMPOSSIBLE | - | cl=-
+  speed=10 | cactus-large-3     | IMPOSSIBLE | - | cl=-
+  speed=12 | cactus-small-1     | range 23-89 | best=59 | cl=26.3px
+  speed=12 | cactus-small-2     | range 23-55 | best=35 | cl=12.3px
+  speed=12 | cactus-small-3     | IMPOSSIBLE | - | cl=-
+  speed=12 | cactus-large-1     | IMPOSSIBLE | - | cl=-
+  speed=12 | cactus-large-2     | IMPOSSIBLE | - | cl=-
+  speed=12 | cactus-large-3     | IMPOSSIBLE | - | cl=-
+  speed=14 | cactus-small-1     | range 29-119 | best=71 | cl=27.7px
+  speed=14 | cactus-small-2     | range 29-85 | best=57 | cl=21.2px
+  speed=14 | cactus-small-3     | range 29-51 | best=43 | cl=9.8px
+  speed=14 | cactus-large-1     | IMPOSSIBLE | - | cl=-
+  speed=14 | cactus-large-2     | IMPOSSIBLE | - | cl=-
+  speed=14 | cactus-large-3     | IMPOSSIBLE | - | cl=-
+  speed=16 | cactus-small-1     | range 31-145 | best=95 | cl=31.2px
+  speed=16 | cactus-small-2     | range 31-111 | best=79 | cl=26.3px
+  speed=16 | cactus-small-3     | range 31-77 | best=47 | cl=12.3px
+  speed=16 | cactus-large-1     | IMPOSSIBLE | - | cl=-
+  speed=16 | cactus-large-2     | IMPOSSIBLE | - | cl=-
+  speed=16 | cactus-large-3     | IMPOSSIBLE | - | cl=-
+  speed=18 | cactus-small-1     | range 47-185 | best=119 | cl=31.2px
+  speed=18 | cactus-small-2     | range 47-151 | best=101 | cl=26.3px
+  speed=18 | cactus-small-3     | range 47-117 | best=83 | cl=19.2px
+  speed=18 | cactus-large-1     | IMPOSSIBLE | - | cl=-
+  speed=18 | cactus-large-2     | IMPOSSIBLE | - | cl=-
+  speed=18 | cactus-large-3     | IMPOSSIBLE | - | cl=-
+  speed=20 | cactus-small-1     | range 43-205 | best=123 | cl=32.0px
+  speed=20 | cactus-small-2     | range 43-171 | best=103 | cl=27.7px
+  speed=20 | cactus-small-3     | range 43-137 | best=83 | cl=21.2px
+  speed=20 | cactus-large-1     | range 123-129 | best=123 | cl=1.2px
+  speed=20 | cactus-large-2     | IMPOSSIBLE | - | cl=-
+  speed=20 | cactus-large-3     | IMPOSSIBLE | - | cl=-
+
+================================================================================
+JAVASCRIPT IMPLEMENTATION
+================================================================================
+
+// Optimal jump distances per speed, grouped by obstacle height
+// key = speed (rounded to nearest even), value = jump distance
+
+// --- small cactus (height=70) ---
+// Worst case: cactus-small-3 (width=102)
+const JUMP_DIST_SMALL = {
+  6: null, // CANNOT CLEAR at this speed
+  8: null, // CANNOT CLEAR at this speed
+  10: null, // CANNOT CLEAR at this speed
+  12: null, // CANNOT CLEAR at this speed
+  14: 43,
+  16: 47,
+  18: 83,
+  20: 83,
+};
+
+// --- large cactus (height=100) ---
+// Worst case: cactus-large-3 (width=150)
+const JUMP_DIST_LARGE = {
+  6: null, // CANNOT CLEAR at this speed
+  8: null, // CANNOT CLEAR at this speed
+  10: null, // CANNOT CLEAR at this speed
+  12: null, // CANNOT CLEAR at this speed
+  14: null, // CANNOT CLEAR at this speed
+  16: null, // CANNOT CLEAR at this speed
+  18: null, // CANNOT CLEAR at this speed
+  20: null, // CANNOT CLEAR at this speed
+};
+
+// Combined function for GameScene.js:
+// Uses obstacle dimensions to pick the right lookup
+
+static JUMP_LOOKUP = {
+  6: { small: null, large: null },
+  8: { small: null, large: null },
+  10: { small: null, large: null },
+  12: { small: null, large: null },
+  14: { small: 43, large: null },
+  16: { small: 47, large: null },
+  18: { small: 83, large: null },
+  20: { small: 83, large: null },
+};
+
+calculateOptimalJumpDistance(speed, obstacle) {
+  const lookup = GameScene.JUMP_LOOKUP;
+  const isLarge = obstacle.displayHeight > 80; // 70 = small, 100 = large
+  
+  // Find nearest speed in lookup
+  const speeds = Object.keys(lookup).map(Number).sort((a,b) => a-b);
+  let nearest = speeds[0];
+  for (const s of speeds) {
+    if (Math.abs(s - speed) < Math.abs(nearest - speed)) nearest = s;
+  }
+  
+  const entry = lookup[nearest];
+  let dist = isLarge ? entry.large : entry.small;
+  
+  // If the obstacle can't be cleared at this speed, use the small value
+  // (the processCallback safety net will handle edge cases)
+  if (dist === null) dist = entry.small || 60;
+  
+  return dist;
+}
+
+================================================================================
+VERIFICATION
+================================================================================
+  speed= 6 [SKIP] cactus-small-1     (impossible)
+  speed= 6 [SKIP] cactus-small-2     (impossible)
+  speed= 6 [SKIP] cactus-small-3     (impossible)
+  speed= 6 [SKIP] cactus-large-1     (impossible)
+  speed= 6 [SKIP] cactus-large-2     (impossible)
+  speed= 6 [SKIP] cactus-large-3     (impossible)
+  speed= 8 [OK] cactus-small-1     dist= 15 cl=12.3px
+  speed= 8 [SKIP] cactus-small-2     (impossible)
+  speed= 8 [SKIP] cactus-small-3     (impossible)
+  speed= 8 [SKIP] cactus-large-1     (impossible)
+  speed= 8 [SKIP] cactus-large-2     (impossible)
+  speed= 8 [SKIP] cactus-large-3     (impossible)
+  speed=10 [OK] cactus-small-1     dist= 33 cl=21.2px
+  speed=10 [OK] cactus-small-2     dist= 13 cl=1.2px
+  speed=10 [SKIP] cactus-small-3     (impossible)
+  speed=10 [SKIP] cactus-large-1     (impossible)
+  speed=10 [SKIP] cactus-large-2     (impossible)
+  speed=10 [SKIP] cactus-large-3     (impossible)
+  speed=12 [OK] cactus-small-1     dist= 59 cl=26.3px
+  speed=12 [OK] cactus-small-2     dist= 35 cl=12.3px
+  speed=12 [SKIP] cactus-small-3     (impossible)
+  speed=12 [SKIP] cactus-large-1     (impossible)
+  speed=12 [SKIP] cactus-large-2     (impossible)
+  speed=12 [SKIP] cactus-large-3     (impossible)
+  speed=14 [OK] cactus-small-1     dist= 71 cl=27.7px
+  speed=14 [OK] cactus-small-2     dist= 57 cl=21.2px
+  speed=14 [OK] cactus-small-3     dist= 43 cl=9.8px
+  speed=14 [SKIP] cactus-large-1     (impossible)
+  speed=14 [SKIP] cactus-large-2     (impossible)
+  speed=14 [SKIP] cactus-large-3     (impossible)
+  speed=16 [OK] cactus-small-1     dist= 95 cl=31.2px
+  speed=16 [OK] cactus-small-2     dist= 79 cl=26.3px
+  speed=16 [OK] cactus-small-3     dist= 47 cl=12.3px
+  speed=16 [SKIP] cactus-large-1     (impossible)
+  speed=16 [SKIP] cactus-large-2     (impossible)
+  speed=16 [SKIP] cactus-large-3     (impossible)
+  speed=18 [OK] cactus-small-1     dist=119 cl=31.2px
+  speed=18 [OK] cactus-small-2     dist=101 cl=26.3px
+  speed=18 [OK] cactus-small-3     dist= 83 cl=19.2px
+  speed=18 [SKIP] cactus-large-1     (impossible)
+  speed=18 [SKIP] cactus-large-2     (impossible)
+  speed=18 [SKIP] cactus-large-3     (impossible)
+  speed=20 [OK] cactus-small-1     dist=123 cl=32.0px
+  speed=20 [OK] cactus-small-2     dist=103 cl=27.7px
+  speed=20 [OK] cactus-small-3     dist= 83 cl=21.2px
+  speed=20 [OK] cactus-large-1     dist=123 cl=1.2px
+  speed=20 [SKIP] cactus-large-2     (impossible)
+  speed=20 [SKIP] cactus-large-3     (impossible)

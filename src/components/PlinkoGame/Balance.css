@@ -1,0 +1,134 @@
+/* Balance CSS - Exact port from Balance.svelte styles */
+
+.balance-container {
+    display: flex;
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.balance-display {
+    display: flex;
+    gap: 8px;
+    padding: 8px 12px;
+    background: #0f172a;
+    /* slate-900 */
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    font-variant-numeric: tabular-nums;
+}
+
+@media (min-width: 640px) {
+    .balance-display {
+        font-size: 16px;
+    }
+}
+
+.balance-symbol {
+    color: #6b7280;
+    /* gray-500 */
+    user-select: none;
+}
+
+.balance-value {
+    min-width: 64px;
+    text-align: right;
+}
+
+.balance-popover-wrapper {
+    position: relative;
+}
+
+.add-btn {
+    padding: 8px 16px;
+    background: #2563eb;
+    /* blue-600 */
+    border: none;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+@media (min-width: 640px) {
+    .add-btn {
+        font-size: 16px;
+    }
+}
+
+.add-btn:hover {
+    background: #3b82f6;
+    /* blue-500 */
+}
+
+.add-btn:active {
+    background: #1d4ed8;
+    /* blue-700 */
+}
+
+.add-money-popover {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 30;
+    padding: 12px;
+    background: #475569;
+    /* slate-600 */
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    white-space: nowrap;
+}
+
+.add-money-popover::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid #475569;
+}
+
+.add-money-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: #e5e7eb;
+    /* gray-200 */
+    margin: 0;
+}
+
+.add-money-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.add-money-btn {
+    padding: 8px 12px;
+    background: #22c55e;
+    /* green-500 */
+    border: none;
+    border-radius: 6px;
+    color: #111827;
+    /* gray-900 */
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    touch-action: manipulation;
+    transition: background 0.2s;
+}
+
+.add-money-btn:hover {
+    background: #4ade80;
+    /* green-400 */
+}
+
+.add-money-btn:active {
+    background: #16a34a;
+    /* green-600 */
+}

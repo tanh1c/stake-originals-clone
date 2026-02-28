@@ -1,0 +1,795 @@
+/* =================================================================
+   SIDEBAR COMPONENT - CLEAN & ORGANIZED STYLING
+   ================================================================= */
+
+:root {
+    /* Sidebar Spacing System */
+    --sidebar-padding: 16px;
+    --sidebar-gap: 16px;
+    --card-margin: 0 12px 12px 12px;
+    --card-padding: 12px;
+
+    /* Sidebar Colors */
+    --sidebar-bg: var(--bg-secondary);
+    --sidebar-border: var(--border-color);
+    --card-bg: var(--bg-tertiary);
+    --card-border: var(--border-color);
+
+    /* Special Card Colors - Professional & Formal */
+    --ball-selector-bg: #1a2c38;
+    --ball-selector-border: rgba(255, 255, 255, 0.08);
+    --ball-button-bg: #24333d;
+    --ball-button-border: rgba(255, 255, 255, 0.12);
+    --ball-button-hover-bg: #2a3d4a;
+    --ball-button-selected-bg: #2f4553;
+    --ball-button-selected-border: rgba(255, 255, 255, 0.2);
+    /* streak variables removed */
+}
+
+/* =================================================================
+   MAIN SIDEBAR CONTAINER
+   ================================================================= */
+
+.sidebar {
+    width: 320px;
+    min-width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--sidebar-gap);
+    padding: var(--sidebar-padding);
+    background: var(--sidebar-bg);
+    border-right: 1px solid var(--sidebar-border);
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.sidebar::-webkit-scrollbar {
+    display: none;
+}
+
+/* =================================================================
+   FORM ELEMENTS
+   ================================================================= */
+
+/* Bet Mode Tabs - 3D Box Style */
+.bet-mode-tabs {
+    display: flex;
+    gap: 4px;
+    padding: 4px;
+    background: #1a2c38;
+    border-radius: 10px;
+    border: none;
+    transform: translateY(-4px);
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.4), 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.15s ease;
+}
+
+.bet-mode-tab {
+    flex: 1;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    background: #2a3f4d;
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    position: relative;
+}
+
+.bet-mode-tab:hover:not(:disabled):not(.active) {
+    color: var(--text-primary);
+    background: #3d5564;
+}
+
+.bet-mode-tab.active {
+    background: #00e701;
+    color: #000;
+    font-weight: 700;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 0 #006601, 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.bet-mode-tab.active:active {
+    transform: translateY(0);
+    box-shadow: 0 0 0 #006601;
+}
+
+.bet-mode-tab:disabled {
+    cursor: not-allowed;
+    opacity: 0.4;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Form Groups */
+.form-group {
+    position: relative;
+    margin-bottom: 16px;
+}
+
+.form-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+}
+
+.form-label-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 8px;
+}
+
+.help-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--text-secondary);
+    color: var(--bg-primary);
+    font-size: 9px;
+    font-weight: bold;
+    cursor: help;
+    transition: background-color 0.2s ease;
+}
+
+.help-icon:hover {
+    background: var(--text-primary);
+}
+
+/* Form header (used for compact right-aligned secondary text) */
+.form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+/* Input row: InputNumber + multiplier buttons */
+.input-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.currency-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    background: linear-gradient(135deg, #2b3a45, #24333d);
+    color: var(--text-secondary);
+    font-weight: 700;
+}
+
+/* BTC icon like Crash's panel */
+.btc-icon {
+    width: 20px;
+    height: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #f7931a, #ffb347);
+    color: #fff;
+    font-weight: 800;
+    font-size: 13px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.btc-icon.small {
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+}
+
+/* Input Components - Ant Design Overrides & 3D Style */
+.sidebar .ant-input-number {
+    flex: 1;
+    border-radius: 8px;
+    border: none;
+    background: #2a3f4d;
+    transform: translateY(-4px);
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.15s ease;
+}
+
+.sidebar .ant-input-number-group-addon,
+.sidebar .ant-input-number-addon {
+    background: #2a3f4d !important;
+    border: none !important;
+    border-radius: 8px 0 0 8px !important;
+    transform: translateY(-4px);
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.15s ease;
+    padding: 0 12px !important;
+}
+
+.sidebar .ant-input-number-group-addon .btc-icon,
+.sidebar .ant-input-number-addon .btc-icon {
+    background: linear-gradient(135deg, #f7931a, #ffb347) !important;
+}
+
+.sidebar .ant-input-number .ant-input-number-input {
+    color: var(--text-primary);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.sidebar .ant-input-number:focus,
+.sidebar .ant-input-number-focused {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 0 rgba(0, 231, 1, 0.5), 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar .ant-input-number-focused+.ant-input-number-group-addon,
+.sidebar .ant-input-number-group-wrapper:focus-within .ant-input-number-group-addon,
+.sidebar .ant-input-number-group:focus-within .ant-input-number-group-addon {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 0 rgba(0, 231, 1, 0.5), 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar .ant-input-number:disabled {
+    cursor: not-allowed;
+    opacity: 0.4;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Button Group for ½ and 2× - 3D Pushable Style */
+.sidebar .ant-btn-group {
+    display: flex;
+    gap: 0;
+    transform: translateY(-4px);
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    transition: all 0.15s ease;
+}
+
+.sidebar .ant-btn-group .ant-btn {
+    border-radius: 0;
+    border: none;
+    background: #2a3f4d;
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 13px;
+    min-width: 48px;
+    padding: 12px 16px;
+    transition: all 0.15s ease;
+    transform: translateY(0);
+}
+
+.sidebar .ant-btn-group .ant-btn:first-child {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.sidebar .ant-btn-group .ant-btn:last-child {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.sidebar .ant-btn-group .ant-btn:active:not(:disabled) {
+    background: #2a4f3d;
+    color: #00e701;
+}
+
+.sidebar .ant-btn-group .ant-btn:hover:not(:disabled) {
+    background: #3d5564;
+    color: #ffffff;
+}
+
+.sidebar .ant-btn-group .ant-btn:disabled {
+    opacity: 0.4;
+}
+
+.error-text {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    font-size: 11px;
+    color: #ef4444;
+    margin-top: 4px;
+    line-height: 1.2;
+}
+
+/* Select Component - 3D Box Style */
+.form-select {
+    width: 100%;
+    padding: 12px 36px 12px 12px;
+    background-color: #2a3f4d;
+    border: none;
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23b1b6c6' viewBox='0 0 16 16'%3E%3Cpath d='M2 5l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    outline: none;
+    transform: translateY(-4px);
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.form-select:hover:not(:disabled) {
+    background-color: #3d5564;
+    transform: translateY(-4px);
+}
+
+.form-select:active:not(:disabled),
+.form-select:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 0 rgba(0, 231, 1, 0.5), 0 2px 6px rgba(0, 0, 0, 0.2);
+    border: none;
+}
+
+.form-select:disabled {
+    cursor: not-allowed;
+    opacity: 0.4;
+    transform: none;
+    box-shadow: none;
+    background-image: none;
+}
+
+.form-select option {
+    background: var(--sidebar-bg);
+    color: var(--text-primary);
+    padding: 8px;
+}
+
+/* Auto Bet Input - 3D Style */
+.auto-bet-input {
+    position: relative;
+    transform: translateY(-4px);
+    transition: all 0.15s ease;
+}
+
+.auto-bet-input input {
+    width: 100%;
+    padding: 12px 36px 12px 12px;
+    background-color: #2a3f4d;
+    border: none;
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.15s ease;
+    outline: none;
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.auto-bet-input input:focus {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 rgba(0, 231, 1, 0.5), 0 2px 6px rgba(0, 0, 0, 0.2);
+    background-color: #3d5564;
+}
+
+.auto-bet-input input.error {
+    box-shadow: 0 4px 0 #ef4444, 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.auto-bet-input input.error:focus {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #ef4444, 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.auto-bet-input input:disabled {
+    cursor: not-allowed;
+    opacity: 0.4;
+    transform: translateY(4px);
+    box-shadow: none;
+}
+
+.infinity-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-secondary);
+    font-weight: bold;
+    font-size: 18px;
+    pointer-events: none;
+}
+
+/* Bet Button - Primary Action Button (3D Box Style like DinoGame) */
+.bet-button {
+    width: 100%;
+    padding: 16px;
+    background: #00e701;
+    border: none;
+    border-radius: 8px;
+    color: #000;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transform: translateY(-6px);
+    box-shadow: 0 6px 0 #006601, 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+.bet-button:hover:not(:disabled) {
+    background: #00c801;
+    transform: translateY(-4px);
+    box-shadow: 0 4px 0 #006601, 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.bet-button:active:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 0 #006601, 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.bet-button:disabled {
+    background: #525252;
+    color: #a3a3a3;
+    cursor: not-allowed;
+    transform: translateY(0);
+    box-shadow: none;
+    opacity: 0.6;
+}
+
+.bet-button.stop {
+    background: #eab308;
+    box-shadow: 0 6px 0 #966d06, 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+.bet-button.stop:hover:not(:disabled) {
+    background: #ca8a04;
+    box-shadow: 0 4px 0 #966d06, 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.bet-button.stop:hover:not(:disabled) {
+    box-shadow: 0 6px 20px rgba(234, 179, 8, 0.4);
+}
+
+.bet-button:disabled {
+    background: #525252;
+    color: #a3a3a3;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+    opacity: 0.6;
+}
+
+/* =================================================================
+   CARD COMPONENTS
+   ================================================================= */
+
+/* Base Card Styles (3D Box Style like DinoGame) */
+.sidebar-card {
+    margin: var(--card-margin);
+    padding: var(--card-padding);
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    transition: all 0.15s ease;
+    transform: translateY(-4px);
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.sidebar-card:hover {
+    border-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Ball Selector Card */
+.ball-selector-card {
+    background: var(--ball-selector-bg);
+    border-color: var(--ball-selector-border);
+    border-width: 1px;
+    position: relative;
+}
+
+.ball-selector-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.ball-selector-header .anticon {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.ball-types-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    align-items: stretch;
+    width: 100%;
+}
+
+.ball-type-option {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    padding: 12px;
+    background: #2a3f4d;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    position: relative;
+    flex: 1 1 auto;
+    min-height: 48px;
+    box-sizing: border-box;
+    overflow: hidden;
+    transform: translateY(-4px);
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.ball-type-option:hover:not(.selected) {
+    background: #3d5564;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.3), 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.ball-type-option:active:not(.selected) {
+    transform: translateY(0);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.3);
+}
+
+.ball-type-option.selected {
+    background: #1a2c38;
+    border: 2px solid #00e701;
+    transform: translateY(2px);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.ball-type-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.ball-type-name {
+    font-size: 13px;
+    color: var(--text-primary);
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.3;
+}
+
+.ball-type-option.selected .ball-type-name {
+    font-weight: 700;
+    color: #fff;
+}
+
+.ball-type-cost {
+    font-size: 11px;
+    color: var(--text-secondary);
+    margin-top: 2px;
+    font-weight: 500;
+}
+
+.ball-type-option.selected .ball-type-cost {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Ball Color Circle */
+.ball-color-circle {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    border: 1.5px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.ball-type-option.selected .ball-color-circle {
+    border-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.ball-color-circle.small {
+    width: 16px;
+    height: 16px;
+    border-width: 1px;
+}
+
+/* Last Win Card */
+.last-win-card {
+    background: var(--card-bg);
+    border-color: var(--card-border);
+}
+
+.last-win-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+}
+
+.last-win-multiplier {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    text-align: center;
+    background: #1a2c38;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.last-win-profit {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.last-win-profit.positive {
+    color: #00e701;
+}
+
+.last-win-profit.negative {
+    color: #ff4d4f;
+}
+
+/* Streak Card */
+/* streak styles removed (moved to History/Statistics) */
+
+/* =================================================================
+   SIDEBAR FOOTER
+   ================================================================= */
+
+.sidebar-footer {
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid var(--sidebar-border);
+}
+
+.footer-buttons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.footer-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    border: none;
+    background: #2a3f4d;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-btn:hover {
+    background: #3d5564;
+    color: var(--text-primary);
+}
+
+.footer-btn:active,
+.footer-btn.active {
+    background: #1a2c38;
+    color: var(--text-primary);
+}
+
+.footer-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* =================================================================
+   RESPONSIVE DESIGN
+   ================================================================= */
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        min-width: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--sidebar-border);
+        padding: 12px;
+        gap: 12px;
+    }
+
+    .sidebar-card {
+        margin: 0 0 12px 0;
+        padding: 10px;
+    }
+
+    .bet-amount-row {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .bet-amount-input input {
+        border-radius: 8px;
+        border-right: 1px solid var(--card-border);
+        padding-left: 32px;
+    }
+
+    .bet-adjust-btn {
+        border-left: none;
+        border-top: 1px solid var(--card-border);
+        border-radius: 0 0 8px 8px;
+        justify-content: space-between;
+    }
+
+    .bet-adjust-btn.last {
+        border-radius: 0;
+    }
+
+    .ball-types-grid {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+
+    .streak-stats {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .footer-buttons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        padding: 8px;
+        gap: 8px;
+    }
+
+    .form-group {
+        margin-bottom: 12px;
+    }
+
+    .sidebar-card {
+        margin: 0 0 8px 0;
+        padding: 8px;
+    }
+
+    .bet-button {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .streak-value {
+        font-size: 20px;
+    }
+}

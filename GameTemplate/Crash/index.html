@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stake - Crash Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="app">
+        <header class="header">
+            <div class="header-left">
+                <button class="tab-btn active">Casino</button>
+                <button class="tab-btn">Sports</button>
+            </div>
+            <div class="header-center">
+                <h1 class="logo">Stake</h1>
+            </div>
+            <div class="header-right">
+                <button class="btn btn-outline">Login</button>
+                <button class="btn btn-primary">Register</button>
+            </div>
+        </header>
+        <div class="main-container">
+            <aside class="sidebar">
+                <nav class="sidebar-nav">
+                    <div class="nav-section">
+                        <a href="#" class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                </svg></span><span>Favourites</span></a>
+                        <a href="#" class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
+                                </svg></span><span>Recent</span></a>
+                        <a href="#" class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2z" />
+                                </svg></span><span>Challenges</span></a>
+                        <a href="#" class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l4.59-4.58L18 11l-6 6z" />
+                                </svg></span><span>My Bets</span></a>
+                    </div>
+                    <div class="nav-section">
+                        <h3 class="nav-title">Games</h3>
+                        <a href="#" class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H8v3H6v-3H3v-2h3V8h2v3h3v2z" />
+                                </svg></span><span>Only on Stake</span></a>
+                        <a href="#" class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M20 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm-8 11H4v-2h8v2z" />
+                                </svg></span><span>New Releases</span></a>
+                        <a href="#" class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M19.5 12c.93 0 1.78.28 2.5.76V8c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h9.74c-.48-.72-.76-1.57-.76-2.5 0-2.49 2.01-4.5 4.5-4.5z" />
+                                </svg></span><span>Slots</span></a>
+                        <a href="#" class="nav-item active"><span class="nav-icon"><svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                                </svg></span><span>Stake Originals</span></a>
+                        <a href="#" class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z" />
+                                </svg></span><span>Live Casino</span></a>
+                        <a href="#" class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14z" />
+                                </svg></span><span>Game Shows</span></a>
+                        <a href="#" class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2z" />
+                                </svg></span><span>Burst Games</span></a>
+                        <a href="#" class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24">
+                                    <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z" />
+                                </svg></span><span>Enhanced RTP</span></a>
+                        <a href="#" class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M11.5 9C10.12 9 9 10.12 9 11.5s1.12 2.5 2.5 2.5 2.5-1.12 2.5-2.5S12.88 9 11.5 9z" />
+                                </svg></span><span>Stake Poker</span></a>
+                        <a href="#" class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M20 6h-2.18c.11-.31.18-.65.18-1 0-1.66-1.34-3-3-3-1.05 0-1.96.54-2.5 1.35l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-2 .89-2 2v11c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2z" />
+                                </svg></span><span>Bonus Buy</span></a>
+                        <a href="#" class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M21.71 7.29l-5-5A1 1 0 0016 2H8a1 1 0 00-.71.29l-5 5A1 1 0 002 8v8a1 1 0 00.29.71l5 5A1 1 0 008 22h8a1 1 0 00.71-.29l5-5A1 1 0 0022 16V8a1 1 0 00-.29-.71z" />
+                                </svg></span><span>Blackjack</span></a>
+                        <a href="#" class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
+                                    <circle cx="12" cy="12" r="5" />
+                                </svg></span><span>Baccarat</span></a>
+                        <a href="#" class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-5.5 15.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5z" />
+                                </svg></span><span>Roulette</span></a>
+                    </div>
+                </nav>
+            </aside>
+            <main class="main-content">
+                <div class="game-container">
+                    <div class="betting-panel">
+                        <div class="bet-tabs">
+                            <button class="bet-tab active">Manual</button>
+                            <button class="bet-tab">Auto</button>
+                        </div>
+                        <div class="input-group">
+                            <label class="input-label"><span>Bet Amount</span><span
+                                    class="input-value">$0.00</span></label>
+                            <div class="input-wrapper">
+                                <input type="text" class="bet-input" value="0.00000000" id="betAmount">
+                                <div class="currency-selector"><span class="currency-icon">₿</span></div>
+                                <div class="quick-buttons">
+                                    <button class="quick-btn" id="halfBtn">½</button>
+                                    <button class="quick-btn" id="doubleBtn">2×</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label class="input-label">Cashout At</label>
+                            <div class="cashout-wrapper">
+                                <input type="text" class="bet-input" value="2.00" id="cashoutAt">
+                                <div class="cashout-controls">
+                                    <button class="cashout-btn" id="cashoutUp">▲</button>
+                                    <button class="cashout-btn" id="cashoutDown">▼</button>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="bet-button" id="betBtn">Bet (Next Round)</button>
+                        <div class="input-group">
+                            <label class="input-label"><span>Profit on Win</span><span
+                                    class="input-value">$0.00</span></label>
+                            <div class="input-wrapper readonly"><input type="text" class="bet-input" value="0.00000000"
+                                    readonly id="profitDisplay"></div>
+                        </div>
+                        <div class="players-info">
+                            <div class="players-count">
+                                <span class="player-icon"><svg viewBox="0 0 24 24">
+                                        <path
+                                            d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z" />
+                                    </svg></span>
+                                <span id="playerCount">384</span>
+                            </div>
+                            <div class="total-bet">
+                                <span class="currency-icon" style="width:16px;height:16px;font-size:10px;">₿</span>
+                                <span id="totalBet">$4,046.58</span>
+                                <span class="dropdown-arrow">▼</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-display">
+                        <div class="game-history" id="gameHistory"></div>
+                        <div class="chart-container">
+                            <canvas id="crashChart"></canvas>
+                            <div class="y-axis" id="yAxis"></div>
+                            <div class="x-axis" id="xAxis"></div>
+                            <div class="multiplier-display" id="multiplierDisplay">
+                                <span class="multiplier-value" id="multiplierValue">1.00</span>
+                                <span class="multiplier-x">×</span>
+                            </div>
+                            <div class="status-message" id="statusMessage"><span class="status-text">Starting in
+                                    5.0s</span></div>
+                            <div class="network-status"><span class="status-dot"></span><span>Network Status</span>
+                            </div>
+                        </div>
+                        <div class="bottom-controls">
+                            <div class="chart-controls">
+                                <button class="control-btn" title="Settings"><svg viewBox="0 0 24 24">
+                                        <path
+                                            d="M19.14 12.94c.04-.31.06-.63.06-.94 0-.31-.02-.63-.06-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.04.31-.06.63-.06.94s.02.63.06.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z" />
+                                    </svg></button>
+                                <button class="control-btn" title="Fullscreen"><svg viewBox="0 0 24 24">
+                                        <path
+                                            d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z" />
+                                    </svg></button>
+                                <button class="control-btn" title="Statistics"><svg viewBox="0 0 24 24">
+                                        <path
+                                            d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" />
+                                    </svg></button>
+                                <button class="control-btn" title="Layout"><svg viewBox="0 0 24 24">
+                                        <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z" />
+                                    </svg></button>
+                            </div>
+                            <div class="stake-logo-small">Stake</div>
+                            <button class="fairness-btn"><svg viewBox="0 0 24 24">
+                                    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" />
+                                </svg><span>Fairness</span></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="hot-bet-row"><span class="hot-bet-pill">611,100.00×</span><span
+                        class="hot-bet-user">ogicjp</span></div>
+            </main>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

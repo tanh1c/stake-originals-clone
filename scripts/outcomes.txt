@@ -1,0 +1,86 @@
+╔══════════════════════════════════════════╗
+║   Plinko Outcomes Generator (Matter.js)  ║
+╚══════════════════════════════════════════╝     
+
+🎰 Row 8: Running 10000 simulations...
+   2000/10000 done (5.5s)
+   4000/10000 done (10.7s)
+   6000/10000 done (16.4s)
+   8000/10000 done (21.9s)
+   10000/10000 done (27.4s)
+   ✅ Done in 27.4s — 9927 valid drops
+   📊 Bin0:440 | Bin1:836 | Bin2:1330 | Bin3:1456 | Bin4:1762 | Bin5:1513 | Bin6:1357 | Bin7:845 | Bin8:388
+
+🎰 Row 9: Running 10000 simulations...
+   2000/10000 done (7.0s)
+   4000/10000 done (14.2s)
+   6000/10000 done (21.5s)
+   10000/10000 done (36.1s)
+   ✅ Done in 36.1s — 9931 valid drops
+   📊 Bin0:304 | Bin1:626 | Bin2:1114 | Bin3:1313 | Bin4:1590 | Bin5:1555 | Bin6:1351 | Bin7:1094 | Bin8:662 | Bin9:322
+
+🎰 Row 10: Running 10000 simulations...
+   2000/10000 done (8.4s)
+   4000/10000 done (17.3s)
+   6000/10000 done (26.7s)
+   8000/10000 done (35.5s)
+   10000/10000 done (44.4s)
+   ✅ Done in 44.4s — 9468 valid drops
+   📊 Bin0:201 | Bin1:460 | Bin2:667 | Bin3:1127 | Bin4:1481 | Bin5:1551 | Bin6:1427 | Bin7:1081 | Bin8:786 | Bin9:489 | Bin10:198
+
+🎰 Row 11: Running 10000 simulations...
+   2000/10000 done (11.3s)
+   4000/10000 done (21.4s)
+   6000/10000 done (31.5s)
+   8000/10000 done (41.6s)
+   10000/10000 done (51.8s)
+   ✅ Done in 51.8s — 8910 valid drops
+   📊 Bin0:136 | Bin1:239 | Bin2:491 | Bin3:835 | Bin4:1285 | Bin5:1550 | Bin6:1467 | Bin7:1292 | Bin8:790 | Bin9:474 | Bin10:230 | Bin11:121
+
+🎰 Row 12: Running 10000 simulations...
+   2000/10000 done (12.3s)
+   4000/10000 done (24.5s)
+   6000/10000 done (36.3s)
+   8000/10000 done (48.3s)
+   10000/10000 done (60.8s)
+   ✅ Done in 60.8s — 9749 valid drops
+   📊 Bin0:150 | Bin1:364 | Bin2:585 | Bin3:811 | Bin4:1026 | Bin5:1327 | Bin6:1279 | Bin7:1268 | Bin8:1041 | Bin9:848 | Bin10:545 | Bin11:342 | Bin12:163
+
+🎰 Row 13: Running 10000 simulations...
+   2000/10000 done (15.0s)
+   4000/10000 done (28.8s)
+   6000/10000 done (44.1s)
+   8000/10000 done (58.7s)
+   10000/10000 done (73.7s)
+   ✅ Done in 73.7s — 9886 valid drops
+   📊 Bin0:90 | Bin1:239 | Bin2:397 | Bin3:693 | Bin4:983 | Bin5:1244 | Bin6:1320 | Bin7:1338 | Bin8:1211 | Bin9:930 | Bin10:747 | Bin11:410 | Bin12:193 | Bin13:91
+
+🎰 Row 14: Running 10000 simulations...
+   2000/10000 done (16.1s)
+   4000/10000 done (31.9s)
+   6000/10000 done (47.1s)
+   8000/10000 done (62.6s)
+   10000/10000 done (77.5s)
+   ✅ Done in 77.5s — 9735 valid drops
+   📊 Bin0:115 | Bin1:227 | Bin2:408 | Bin3:579 | Bin4:798 | Bin5:1025 | Bin6:1122 | Bin7:1158 | Bin8:1117 | Bin9:986 | Bin10:843 | Bin11:615 | Bin12:401 | Bin13:209 | Bin14:132
+
+🎰 Row 15: Running 10000 simulations...
+   2000/10000 done (17.5s)
+   4000/10000 done (34.7s)
+   6000/10000 done (51.6s)
+   8000/10000 done (68.8s)
+   10000/10000 done (85.1s)
+   ✅ Done in 85.1s — 9877 valid drops
+   📊 Bin0:74 | Bin1:124 | Bin2:221 | Bin3:468 | Bin4:682 | Bin5:887 | Bin6:1151 | Bin7:1312 | Bin8:1312 | Bin9:1132 | Bin10:925 | Bin11:693 | Bin12:433 | Bin13:248 | Bin14:136 | Bin15:79
+
+🎰 Row 16: Running 10000 simulations...
+   2000/10000 done (18.1s)
+   4000/10000 done (35.8s)
+   6000/10000 done (52.8s)
+   8000/10000 done (69.7s)
+   10000/10000 done (87.1s)
+   ✅ Done in 87.1s — 9740 valid drops
+   📊 Bin0:80 | Bin1:116 | Bin2:218 | Bin3:388 | Bin4:629 | Bin5:809 | Bin6:999 | Bin7:1124 | Bin8:1183 | Bin9:1066 | Bin10:967 | Bin11:784 | Bin12:565 | Bin13:373 | Bin14:224 | Bin15:136 | Bin16:79
+
+📁 Outcomes written to: C:\Users\LG\Desktop\Study Material\AI\11-08-2025\Stake\src\components\PlinkoGame\plinkoOutcomes.js
+Done! 🎯

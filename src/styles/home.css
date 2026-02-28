@@ -1,0 +1,263 @@
+/* ===== Premium Home Page Styles ===== */
+.home-page-container {
+    padding: 0;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: var(--bg-primary);
+    /* Stake standard body background */
+}
+
+/* ===== Hero Section ===== */
+.home-page-hero {
+    background: linear-gradient(135deg, rgba(20, 117, 225, 0.15) 0%, var(--bg-primary) 100%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 64px 32px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0, 231, 1, 0.1);
+    color: var(--accent-green);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    border: 1px solid rgba(0, 231, 1, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hero-badge .dot {
+    width: 6px;
+    height: 6px;
+    background-color: var(--accent-green);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--accent-green);
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--text-primary);
+    line-height: 1.1;
+    margin-bottom: 16px;
+    letter-spacing: -1px;
+}
+
+.hero-desc {
+    font-size: 16px;
+    color: var(--text-secondary);
+    max-width: 500px;
+    margin-bottom: 32px;
+    line-height: 1.6;
+}
+
+.hero-btn {
+    padding: 14px 32px;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 8px;
+    background: var(--accent-blue);
+    color: white;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 4px 15px rgba(20, 117, 225, 0.3);
+    transition: all 0.2s ease;
+}
+
+.hero-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(20, 117, 225, 0.4);
+    filter: brightness(1.1);
+}
+
+.hero-artwork {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 300px;
+    height: 300px;
+    opacity: 1;
+    /* Make it fully clear */
+    pointer-events: none;
+}
+
+/* ===== Sections ===== */
+.home-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.section-header h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+/* ===== Game Grid ===== */
+.stake-games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 16px;
+}
+
+@media (min-width: 768px) {
+    .stake-games-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+}
+
+.stake-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    position: relative;
+    transition: transform 0.2s ease;
+    border-radius: 8px;
+}
+
+.stake-card:hover {
+    transform: translateY(-4px);
+}
+
+.stake-card-image {
+    background: var(--bg-tertiary);
+    border-radius: 8px;
+    aspect-ratio: 3 / 4;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.game-art-placeholder {
+    width: 50%;
+    height: 50%;
+    color: var(--text-secondary);
+    opacity: 0.5;
+    transition: all 0.2s ease;
+}
+
+.game-art-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.stake-card:hover .game-art-image {
+    transform: scale(1.05);
+}
+
+.stake-card:hover .game-art-placeholder {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
+
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 33, 46, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.stake-card:hover .card-overlay {
+    opacity: 1;
+}
+
+.play-btn {
+    width: 48px;
+    height: 48px;
+    background: var(--accent-green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0.8);
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.stake-card:hover .play-btn {
+    transform: scale(1);
+}
+
+.play-btn svg {
+    margin-left: 4px;
+}
+
+.stake-card-footer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 4px;
+}
+
+.game-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    transition: color 0.2s ease;
+}
+
+.stake-card:hover .game-name {
+    color: var(--text-primary);
+}
+
+/* Coming Soon */
+.is-coming-soon {
+    opacity: 0.5;
+    pointer-events: none;
+    filter: grayscale(1);
+}
+
+.badge-coming-soon {
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 4px 8px;
+    border-radius: 12px;
+}
+
+.badge-coming-soon .dot {
+    width: 6px;
+    height: 6px;
+    background-color: var(--text-muted);
+    border-radius: 50%;
+}
